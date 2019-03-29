@@ -1,3 +1,5 @@
 .DS_Store
 .idea
+lab3/bin/
+lab3/.idea/
 *.out

@@ -80,3 +80,8 @@ std::ostream &operator<<(std::ostream &os, const Complex &c){
     os << c.real << " + " << c.imagine << 'i';
     return os;
 };
+
+
+std::istream &operator>>(std::istream &is, const Complex &c){
+    return is;
+};
