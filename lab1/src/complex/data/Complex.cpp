@@ -45,9 +45,10 @@ Complex &operator*=(Complex &left, const Complex &right) {
 };
 
 Complex &operator/=(Complex &left, const Complex &right) {
-    float a = left.real, b = left.imagine, c = right.real, d = right.imagine;
-    left.real = (a * c + b * d) / (c * c + d * d);
-    left.imagine = -((a * d - b * c) / (c * c + d * d));
+    float a = left.real, b = left.imagine, c = right.real, d = right.imagine, ff = c * c + d * d;
+    if (!ff) throw DIVISION_BY_ZERO_EXCEPTION;
+    left.real = (a * c + b * d) / ff;
+    left.imagine = -((a * d - b * c) / ff;
     return left;
 };
 
@@ -80,7 +81,6 @@ std::ostream &operator<<(std::ostream &os, const Complex &c){
     os << c.real << " + " << c.imagine << 'i';
     return os;
 };
-
 
 std::istream &operator>>(std::istream &is, const Complex &c){
     return is;

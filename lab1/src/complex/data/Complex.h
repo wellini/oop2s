@@ -5,6 +5,8 @@
 #ifndef LAB1_COMPLEX_H
 #define LAB1_COMPLEX_H
 
+#define DIVISION_BY_ZERO_EXCEPTION 101
+
 
 class Complex {
 private:
