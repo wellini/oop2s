@@ -6,25 +6,26 @@
 #include "services/ComplexReader.cpp"
 #include <cmath>
 
-void complexStartReadingFromFile(){
+void complexStartReadingFromFile() {
     try {
         ComplexReader *reader = new ComplexReader("assets/complex.txt");
 
-        Complex * array = reader->getArray();
+        Complex *array = reader->getArray();
         int length = reader->getLength();
 
         Complex maxc = array[0];
         float maxAbs;
         for (int i = 0; i < length; ++i) {
-            float currentAbs = sqrt(array[i].getReal()*array[i].getReal() + array[i].getImagine()*array[i].getImagine());
+            float currentAbs = sqrt(
+                    array[i].getReal() * array[i].getReal() + array[i].getImagine() * array[i].getImagine());
             if (currentAbs > maxAbs) maxc = array[i];
         }
 
         cout << "Max complex in file: " << maxc;
         delete reader;
-    } catch (int i){
+    } catch (int i) {
         string message;
-        switch (i){
+        switch (i) {
             case FILE_OPENING_ERROR_EXCEPTION:
                 message = "File opening error";
         }
@@ -32,13 +33,13 @@ void complexStartReadingFromFile(){
     }
 }
 
-void complexStartMathOperationsDemo(){
+void complexStartMathOperationsDemo() {
     Complex c1, c2, result;
     char sign;
 
-    cout << "Enter math sentence (for example <real> <imagine> <+|-|*|/> <real> <imagine>)" << endl;
+    cout << endl << "Enter math sentence (for example <real> <imagine> <+|-|*|/> <real> <imagine>)" << endl;
     cin >> c1 >> sign >> c2;
-    switch (sign){
+    switch (sign) {
         case '+':
             result = c1 + c2;
             break;
@@ -51,11 +52,16 @@ void complexStartMathOperationsDemo(){
         case '/':
             try {
                 result = c1 / c2;
-            } catch (DIVISION_BY_ZERO_EXCEPTION){
-                cout << "You are attempting to divide by zero!" << endl;
+            } catch (int i) {
+                switch (i) {
+                    case DIVISION_BY_ZERO_EXCEPTION:
+                        cout << "You are attempting to divide by zero!";
+                        break;
+                }
             }
 
             break;
     }
+    cout << result;
 }
 

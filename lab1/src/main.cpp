@@ -6,7 +6,8 @@
 
 int main(int argc, char *argv[]) {
     cout << "[LAB-1] Complex numbers reading and operators overloading started." << endl;
-    complexStart();
+    complexStartReadingFromFile();
+    complexStartMathOperationsDemo();
     cout << endl;
     return 0;
 }

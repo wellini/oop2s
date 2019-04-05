@@ -40,7 +40,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Complex &c);
 
-    friend std::istream &operator>>(std::istream &is, const Complex &c);
+    friend std::istream &operator>>(std::istream &is, Complex &c);
 
     Complex getMated();
 
@@ -73,6 +73,6 @@ bool operator==(const Complex &a1, const Complex &a2);
 
 std::ostream &operator<<(std::ostream &os, const Complex &c);
 
-std::istream &operator>>(std::istream &is, const Complex &c);
+std::istream &operator>>(std::istream &is, Complex &c);
 
 #endif //LAB1_COMPLEX_H
